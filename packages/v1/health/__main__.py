@@ -6,10 +6,10 @@ import types, os, health
 
 builder = []
 ## build-context ##
-#--param POSTGRES_URL "$POSTGRES_URL"
+#--param EXT_POSTGRES_URL "$EXT_POSTGRES_URL"
 import psycopg
 def init_postgresql(args, ctx):
-  dburl = args.get("POSTGRES_URL", os.getenv("POSTGRES_URL"))
+  dburl = args.get("EXT_POSTGRES_URL", os.getenv("EXT_POSTGRES_URL"))
   ctx.POSTGRESQL = psycopg.connect(dburl)
 builder.append(init_postgresql)
 
